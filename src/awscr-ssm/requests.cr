@@ -10,7 +10,7 @@ module Awscr
 
       def initialize(
         @key : String,
-        @with_decription : Bool = true
+        @with_decryption : Bool = true
       )
       end
 
@@ -22,7 +22,7 @@ module Awscr
         {
           "Action"         => "GetParameter",
           "Name"           => @key,
-          "WithDecryption" => @with_decription.to_s,
+          "WithDecryption" => @with_decryption.to_s,
         }
       end
     end
@@ -35,7 +35,7 @@ module Awscr
         @max_results : Int32 = 10,
         @next_token : (String | Nil) = nil,
         @recursive : Bool = true,
-        @with_decription : Bool = true
+        @with_decryption : Bool = true
       )
       end
 
@@ -49,7 +49,7 @@ module Awscr
           "Path"           => @path,
           "MaxResults"     => @max_results.to_s,
           "Recursive"      => @recursive.to_s,
-          "WithDecryption" => @with_decription.to_s,
+          "WithDecryption" => @with_decryption.to_s,
         }
         @next_token.try { |n| h["NextToken"] = n }
         h
@@ -63,7 +63,7 @@ module Awscr
         @name : String,
         @max_results : Int32 = 10,
         @next_token : (String | Nil) = nil,
-        @with_decription : Bool = true
+        @with_decryption : Bool = true
       )
       end
 
@@ -76,7 +76,7 @@ module Awscr
           "Action"         => "GetParameterHistory",
           "Name"           => @name,
           "MaxResults"     => @max_results.to_s,
-          "WithDecryption" => @with_decription.to_s,
+          "WithDecryption" => @with_decryption.to_s,
         }
         @next_token.try { |n| h["NextToken"] = n }
         h

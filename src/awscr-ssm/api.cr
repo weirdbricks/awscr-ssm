@@ -14,6 +14,10 @@ module Awscr
         client = HTTP::Client.new(uri)
         client.before_request do |request|
           signer = Awscr::Signer::Signers::V4.new("ssm", @region, @credential.key, @credential.secret)
+          # Attach session token header if present (required for temporary credentials)
+          if token = @credential.session_token
+            request.headers["X-Amz-Security-Token"] = token
+          end
           signer.sign(request)
         end
         client

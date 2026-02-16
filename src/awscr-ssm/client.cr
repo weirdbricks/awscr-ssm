@@ -1,14 +1,14 @@
 module Awscr
   module SSM
     class Client
-      def initialize(@region : String, @credential : Credentials = EnvCredentials.new)
+      def initialize(@region : String, @credential : Credentials = Awscr::SSM.default_credentials)
         @api = Api.new(@region, @credential)
       end
 
-      def get_parameter(key : String, with_decription : Bool = false)
+      def get_parameter(key : String, with_decryption : Bool = false)
         GetParameterResponse.new(
           @api.request(
-            GetParameterRequest.new(key, with_decription)
+            GetParameterRequest.new(key, with_decryption)
           )
         ).extract
       end
@@ -18,7 +18,7 @@ module Awscr
         max_results : Int32 = 10,
         next_token : (String | Nil) = nil,
         recursive : Bool = true,
-        with_decription : Bool = true
+        with_decryption : Bool = true
       )
         GetParametersByPathResponse.new(
           @api.request(
@@ -27,7 +27,7 @@ module Awscr
               max_results: max_results,
               next_token: next_token,
               recursive: recursive,
-              with_decription: with_decription
+              with_decryption: with_decryption
             )
           )
         ).extract
@@ -37,7 +37,7 @@ module Awscr
         name : String,
         max_results : Int32 = 10,
         next_token : (String | Nil) = nil,
-        with_decription : Bool = true
+        with_decryption : Bool = true
       )
         GetParameterHistoryResponse.new(
           @api.request(
@@ -45,7 +45,7 @@ module Awscr
               name: name,
               max_results: max_results,
               next_token: next_token,
-              with_decription: with_decription
+              with_decryption: with_decryption
             )
           )
         ).extract
