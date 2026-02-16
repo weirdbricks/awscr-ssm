@@ -11,11 +11,11 @@ module Awscr
       def initialize(@key : String, @secret : String)
       end
 
-      def key
+      def key : String
         @key
       end
 
-      def secret
+      def secret : String
         @secret
       end
     end
@@ -26,11 +26,11 @@ module Awscr
       def initialize
       end
 
-      def key
+      def key : String
         ENV["AWS_ACCESS_KEY_ID"]
       end
 
-      def secret
+      def secret : String
         ENV["AWS_SECRET_ACCESS_KEY"]
       end
     end

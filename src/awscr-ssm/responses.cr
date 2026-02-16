@@ -76,7 +76,7 @@ module Awscr
       def initialize(@response : HTTP::Client::Response)
       end
 
-      def extract
+      def extract : Void
       end
     end
 

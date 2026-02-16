@@ -9,8 +9,7 @@ description: |
 
 dependencies:
   awscr-signer:
-    github: taylorfinnell/awscr-signer
-    version: 0.5.2
+    github: weirdbricks/awscr-signer
 
 development_dependencies:
   ameba:
