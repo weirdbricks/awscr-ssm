@@ -68,6 +68,10 @@ module Awscr
       TOKEN_PATH       = "/latest/api/token"
       CREDENTIALS_PATH = "/latest/meta-data/iam/security-credentials/"
 
+      @key : String
+      @secret : String
+      @session_token : String?
+
       def initialize
         @key, @secret, @session_token = fetch
       end
