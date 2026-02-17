@@ -9,11 +9,11 @@ description: |
 
 dependencies:
   awscr-signer:
-    github: weirdbricks/awscr-signer
+    github: taylorfinnell/awscr-signer
 
 development_dependencies:
   ameba:
     github: veelenga/ameba
     version: 0.8.1
 
-icense: MIT
+license: MIT
